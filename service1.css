@@ -142,4 +142,14 @@ footer {
     box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
     margin-top: auto;
     width: 100%;
-}#0A1DEE
+}
+
+#fetch-code-button { 
+    font-family: 'Tajawal', sans-serif;
+    font-weight: 700; /* 400 للعادي و700 أو 800 للعريض */
+}
+
+#copy-button { 
+    font-family: 'Tajawal', sans-serif;
+    font-weight: 700; /* 400 للعادي و700 أو 800 للعريض */
+}
