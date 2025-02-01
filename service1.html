@@ -11,9 +11,7 @@
     <!-- ربط ملف التصميم -->
     <link rel="stylesheet" href="service1.css">
 
-    <!-- Firebase -->
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
+    <!-- ربط ملف الجافاسكريبت -->
     <script defer src="scripts.js"></script>
 </head>
 <body>
@@ -23,23 +21,19 @@
         <div class="container">
             <h1>موقع ليدر الرسمي</h1>
         </div>
-    </header>
+    </header>=
 
     <!-- قسم الأكواد -->
     <section class="codes-section">
         <div class="container">
-            <h2>الأكواد المتاحة</h2>
-
             <!-- مستطيل عرض الكود -->
             <div class="code-box">
                 <span id="current-code">--</span>
-                <span id="code-status" class="status available">متوفر</span>
                 <button id="copy-button">نسخ</button>
             </div>
 
-            <ul id="codes-list">
-                <!-- سيتم تحميل الأكواد هنا ديناميكيًا -->
-            </ul>
+            <!-- زر جلب كود جديد -->
+            <button id="fetch-code-button" class="fetch-button">جلب كود جديد</button>
         </div>
     </section>
 

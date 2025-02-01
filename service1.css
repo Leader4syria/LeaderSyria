@@ -1,8 +1,36 @@
-/* استيراد الأنماط العامة */
-@import url('styles.css');
-
 /* استخدام الخط العربي Tajawal */
 body {
+  /* منع التمرير الأفقي */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* التأكد من أن جميع العناصر تبقى ضمن حدود الشاشة */
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 15px; /* إضافة بعض الهوامش الداخلية */
+    box-sizing: border-box; /* التأكد من أن الحواف لا تتجاوز العرض */
+}
+
+/* التأكد من أن العناصر لا تتجاوز عرض الشاشة */
+header, .codes-section, footer {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* إصلاح أي عناصر قد تسبب التمرير الأفقي */
+img, video, iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+
     font-family: 'Tajawal', sans-serif;
     display: flex;
     flex-direction: column;
@@ -64,23 +92,6 @@ header {
     color: #007bff;
 }
 
-.status {
-    font-size: 16px;
-    font-weight: bold;
-    padding: 5px 10px;
-    border-radius: 10px;
-}
-
-.status.available {
-    color: white;
-    background: #28a745;
-}
-
-.status.used {
-    color: white;
-    background: red;
-}
-
 /* زر النسخ */
 #copy-button {
     background: #007bff;
@@ -97,6 +108,29 @@ header {
     transform: scale(1.05);
 }
 
+#copy-button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+/* زر جلب كود جديد */
+#fetch-code-button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+#fetch-code-button:hover {
+    background: #007bff;
+    transform: scale(1.05);
+}
+
 /* تذييل الصفحة */
 footer {
     background: #007bff;
@@ -108,4 +142,4 @@ footer {
     box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
     margin-top: auto;
     width: 100%;
-}
+}#0A1DEE

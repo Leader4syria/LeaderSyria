@@ -42,58 +42,41 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 
-// تكوين Firebase
-const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  databaseURL: "YOUR_DATABASE_URL",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID"
-};
+// جلب كود عشوائي من ملف codes.txt
+document.addEventListener('DOMContentLoaded', function () {
+  const fetchCodeButton = document.getElementById('fetch-code-button');
+  const currentCodeElement = document.getElementById('current-code');
+  const copyButton = document.getElementById('copy-button');
 
-// تهيئة Firebase
-firebase.initializeApp(firebaseConfig);
-const db = firebase.database();
+  fetchCodeButton.addEventListener('click', function () {
+    fetch('codes.txt') // جلب ملف الأكواد
+      .then(response => response.text())
+      .then(data => {
+        const codes = data.split('\n').filter(code => code.trim() !== ''); // تقسيم الأكواد إلى مصفوفة
+        if (codes.length > 0) {
+          const randomCode = codes[Math.floor(Math.random() * codes.length)]; // اختيار كود عشوائي
+          currentCodeElement.textContent = randomCode; // عرض الكود في المستطيل
+          copyButton.disabled = false; // تفعيل زر النسخ
+        } else {
+          currentCodeElement.textContent = '--';
+          copyButton.disabled = true; // تعطيل زر النسخ
+        }
+      })
+      .catch(error => {
+        console.error('حدث خطأ أثناء جلب الأكواد:', error);
+        currentCodeElement.textContent = '--';
+        copyButton.disabled = true; // تعطيل زر النسخ
+      });
+  });
 
-// جلب الكود الأول من Firebase
-document.addEventListener("DOMContentLoaded", function() {
-  const codeElement = document.getElementById("current-code");
-  const statusElement = document.getElementById("code-status");
-  const copyButton = document.getElementById("copy-button");
-
-  if (codeElement && statusElement && copyButton) {
-    db.ref("codes").orderByKey().limitToFirst(1).once("value", snapshot => {
-      if (snapshot.exists()) {
-        snapshot.forEach(childSnapshot => {
-          const codeKey = childSnapshot.key;
-          const codeData = childSnapshot.val();
-
-          codeElement.textContent = codeData.value;
-          statusElement.textContent = codeData.used ? "مستخدم" : "متوفر";
-          statusElement.classList.toggle("used", codeData.used);
-          statusElement.classList.toggle("available", !codeData.used);
-          copyButton.disabled = codeData.used;
-
-          // عند نسخ الكود
-          copyButton.addEventListener("click", () => {
-            navigator.clipboard.writeText(codeData.value).then(() => {
-              // تحديث الحالة في Firebase
-              db.ref("codes/" + codeKey).update({ used: true });
-
-              // تغيير مظهر الكود
-              statusElement.textContent = "مستخدم";
-              statusElement.classList.remove("available");
-              statusElement.classList.add("used");
-              copyButton.disabled = true;
-            });
-          });
-        });
-      } else {
-        codeElement.textContent = "لا توجد أكواد متاحة";
-        copyButton.disabled = true;
-      }
-    });
-  }
+  copyButton.addEventListener('click', function () {
+    const codeToCopy = currentCodeElement.textContent;
+    if (codeToCopy && codeToCopy !== '--') {
+      navigator.clipboard.writeText(codeToCopy).then(() => {
+        alert('تم نسخ الكود: ' + codeToCopy);
+      }).catch(err => {
+        console.error('فشل في نسخ الكود:', err);
+      });
+    }
+  });
 });
