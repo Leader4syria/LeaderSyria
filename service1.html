@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الخدمة الأولى - LEADER WEB</title>
+    
+    <!-- استيراد خط Tajawal من Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- ربط ملف التصميم -->
+    <link rel="stylesheet" href="service1.css">
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
+    <script defer src="scripts.js"></script>
+</head>
+<body>
+
+    <!-- رأس الصفحة -->
+    <header>
+        <div class="container">
+            <h1>موقع ليدر الرسمي</h1>
+        </div>
+    </header>
+
+    <!-- قسم الأكواد -->
+    <section class="codes-section">
+        <div class="container">
+            <h2>الأكواد المتاحة</h2>
+
+            <!-- مستطيل عرض الكود -->
+            <div class="code-box">
+                <span id="current-code">--</span>
+                <span id="code-status" class="status available">متوفر</span>
+                <button id="copy-button">نسخ</button>
+            </div>
+
+            <ul id="codes-list">
+                <!-- سيتم تحميل الأكواد هنا ديناميكيًا -->
+            </ul>
+        </div>
+    </section>
+
+    <!-- تذييل الصفحة -->
+    <footer>
+        <div class="container">
+            <p>جميع الحقوق محفوظة &copy; 2025</p>
+        </div>
+    </footer>
+
+</body>
+</html>

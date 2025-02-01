@@ -1,0 +1,323 @@
+/* Reset بعض العناصر الأساسية */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* يجعل الانتقال بين الأقسام سلسًا */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Tajawal', sans-serif;
+    line-height: 1.8;
+    background-color: #ffffff;
+    color: #333;
+    direction: rtl;
+}
+
+/* شريط التقدم */
+.progress-container {
+    width: 100%;
+    height: 5px;
+    background: #f1f1f1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.progress-bar {
+    height: 5px;
+    background: #007bff;
+    width: 0%;
+}
+
+/* تصميم الرأس */
+header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 20px 0;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header h1 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 2.5rem;
+    letter-spacing: -1px;
+}
+
+nav ul {
+    list-style: none;
+    text-align: center;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #f1f1f1;
+}
+
+/* تصميم القسم الأول (Hero) */
+.hero {
+    padding: 60px 0;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+.hero h2 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #007bff;
+}
+
+.hero p {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.hero .btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block;
+}
+
+.hero .btn:hover {
+    background-color: #0056b3;
+}
+
+.hero .btn:active {
+    transform: scale(0.95);
+}
+
+/* تأثيرات الظهور */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.text-fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.text-fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* تصميم قسم الخدمات */
+.services {
+    padding: 50px 0;
+    background-color: #ffffff;
+}
+
+.services h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+    color: #007bff;
+}
+
+.service-item {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: block; /* لجعل العنصر كامل العرض */
+    text-decoration: none; /* إزالة الخط التحتي */
+    color: inherit; /* الحفاظ على لون النص الأصلي */
+}
+
+.service-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.service-item h3 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    color: #007bff;
+}
+
+.service-item p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* انيميشن للمستطيل الأول */
+@keyframes scaleUp {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.service-item.animate {
+    animation: scaleUp 0.5s ease;
+}
+
+/* تصميم قسم "عن الموقع" */
+.about {
+    padding: 50px 0;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.about h2 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #007bff;
+}
+
+.about p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* تصميم قسم "اتصل بنا" */
+.contact {
+    padding: 50px 0;
+    background-color: #ffffff;
+}
+
+.contact h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+    color: #007bff;
+}
+
+.contact form {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: right;
+}
+
+.contact label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.contact input, .contact textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.contact button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.contact button:hover {
+    background-color: #0056b3;
+}
+
+.contact button:active {
+    transform: scale(0.95);
+}
+
+/* التذييل */
+footer {
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+footer h3 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.social-icon img {
+    width: 24px;
+    height: 24px;
+}
+
+.social-icon:hover {
+    transform: translateY(-5px);
+}
+
+footer p {
+    font-size: 1rem;
+}
+
+/* رسوم متحركة للأزرار */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.btn-pulse {
+    animation: pulse 2s infinite;
+}
+
+.btn-pulse:hover {
+    animation: none;
