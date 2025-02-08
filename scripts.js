@@ -8,7 +8,7 @@ async function convertCurrency() {
         return;
     }
 
-    const apiKey = 'b1cbda66dda4e999a7ffa990'; // تأكد من أن المفتاح صالح
+    const apiKey = 'b1cbda66dda4e999a7ffa990'; // استبدل بمفتاح API الخاص بك
     const url = `https://v6.exchangerate-api.com/v6/${apiKey}/pair/${fromCurrency}/${toCurrency}`;
 
     try {
