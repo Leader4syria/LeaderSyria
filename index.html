@@ -1,109 +1,46 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1463332888347915"
-     crossorigin="anonymous"></script>
-     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LEADER WEB</title>
+    <title>حاسبة سعر الصرف</title>
+    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- شريط التقدم -->
-    <div class="progress-container">
-        <div class="progress-bar" id="progressBar"></div>
+    <div class="container">
+        <h1>حاسبة سعر الصرف</h1>
+        <div class="converter">
+            <div class="input-group">
+                <label for="amount">المبلغ:</label>
+                <input type="number" id="amount" placeholder="أدخل المبلغ" value="1000">
+            </div>
+            <div class="input-group">
+                <label for="fromCurrency">من:</label>
+                <select id="fromCurrency">
+                    <option value="EUR">يورو (EUR)</option>
+                    <option value="USD">دولار أمريكي (USD)</option>
+                    <option value="GBP">جنيه إسترليني (GBP)</option>
+                    <option value="JPY">ين ياباني (JPY)</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="toCurrency">إلى:</label>
+                <select id="toCurrency">
+                    <option value="USD">دولار أمريكي (USD)</option>
+                    <option value="EUR">يورو (EUR)</option>
+                    <option value="GBP">جنيه إسترليني (GBP)</option>
+                    <option value="JPY">ين ياباني (JPY)</option>
+                </select>
+            </div>
+            <button onclick="convertCurrency()">تحويل</button>
+        </div>
+        <div class="result">
+            <h2 id="result">المبلغ المحول: </h2>
+            <p id="exchangeRateInfo">سعر الصرف الحالي: </p>
+        </div>
     </div>
-
-    <!-- الرأس -->
-    <header>
-        <div class="container">
-            <h1>موقع ليدر الرسمي</h1>
-            <nav>
-                <ul>
-                    <li><a href="#home">الرئيسية</a></li>
-                    <li><a href="#services">الخدمات</a></li>
-                    <li><a href="#about">عن الموقع</a></li>
-                    <li><a href="#contact">اتصل بنا</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <!-- القسم الأول (Hero) -->
-    <section id="home" class="hero">
-        <div class="container">
-            <h2 class="text-fade-in">مرحباً بكم في الموقع الرسمي</h2>
-            <p class="text-fade-in">هذا الموقع يوفر لك جميع الخدمات بسهولة.</p>
-            <a href="#services" class="btn btn-pulse">اكتشف الخدمات</a>
-        </div>
-    </section>
-
-    <!-- قسم الخدمات -->
-    <section id="services" class="services fade-in">
-        <div class="container">
-            <h2>الخدمات</h2>
-            <a href="service1.html" class="service-item animate">
-                <h3>أكواد تطبيقاتي</h3>
-                <p>اكواد فورية ومتحدثة بشكل دائم</p>
-            </a>
-            <div class="service-item">
-                <h3>خدمة 2</h3>
-                <p>وصف الخدمة الثانية.</p>
-            </div>
-            <div class="service-item">
-                <h3>خدمة 3</h3>
-                <p>وصف الخدمة الثالثة.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- قسم "عن الموقع" -->
-    <section id="about" class="about fade-in">
-        <div class="container">
-            <h2>عن الموقع</h2>
-            <p>هذا الموقع تم إنشاؤه لتسهيل الوصول إلى الخدمات المفيدة بشكل سريع وآمن.</p>
-        </div>
-    </section>
-
-    <!-- قسم "اتصل بنا" -->
-    <section id="contact" class="contact fade-in">
-        <div class="container">
-            <h2>اتصل بنا</h2>
-            <form>
-                <label for="name">الاسم:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="email">البريد الإلكتروني:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="message">الرسالة:</label>
-                <textarea id="message" name="message" required></textarea>
-                <button type="submit" class="btn">إرسال</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- التذييل -->
-    <footer>
-        <div class="container">
-            <h3>تابعنا على:</h3>
-            <div class="social-links">
-                <a href="https://www.tiktok.com/@syria4leader?_t=ZS-8tYTtN13F5z&_r=1" target="_blank" class="social-icon">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3046/3046126.png" alt="TikTok" width="24" height="24">
-                </a>
-                <a href="https://t.me/Leader4Syria" target="_blank" class="social-icon">
-                    <img src="https://b.top4top.io/p_3319g1vr70.png" alt="Telegram" width="24" height="24">
-                </a>
-                <a href="https://www.instagram.com/leader4syria?igsh=MWkwc3NreWhtejZpNw==" target="_blank" class="social-icon">
-                    <img src="https://f.top4top.io/p_3319y85m80.png" alt="Instagram" width="24" height="24">
-                </a>
-            </div>
-            <p>&copy; 2026 . جميع الحقوق محفوظة.</p>
-        </div>
-    </footer>
-
-    <!-- ملف JavaScript -->
-    <script src="scripts.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

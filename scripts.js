@@ -1,82 +1,30 @@
-// شريط التقدم
-window.onscroll = function() {
-  const progressBar = document.getElementById("progressBar");
-  const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-  const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-  const scrolled = (scrollTop / scrollHeight) * 100;
-  progressBar.style.width = scrolled + "%";
-};
+async function convertCurrency() {
+    const amount = document.getElementById('amount').value;
+    const fromCurrency = document.getElementById('fromCurrency').value;
+    const toCurrency = document.getElementById('toCurrency').value;
 
-// تأثيرات الظهور
-const fadeInElements = document.querySelectorAll('.fade-in, .text-fade-in');
-
-const checkVisibility = () => {
-  fadeInElements.forEach(element => {
-    const elementTop = element.getBoundingClientRect().top;
-    const elementBottom = element.getBoundingClientRect().bottom;
-    if (elementTop < window.innerHeight && elementBottom > 0) {
-      element.classList.add('visible');
+    if (amount === "" || isNaN(amount)) {
+        alert("يرجى إدخال مبلغ صحيح");
+        return;
     }
-  });
-};
 
-window.addEventListener('scroll', checkVisibility);
-window.addEventListener('load', checkVisibility);
+    const apiKey = 'YOUR_API_KEY'; // استبدل بمفتاح API الخاص بك
+    const url = `https://v6.exchangerate-api.com/v6/${apiKey}/pair/${fromCurrency}/${toCurrency}/${amount}`;
 
-// إدارة الانيميشن والانتقال
-document.addEventListener("DOMContentLoaded", function() {
-  const serviceItem = document.querySelector('.service-item.animate');
-  if (serviceItem) {
-    serviceItem.addEventListener('click', function(event) {
-      event.preventDefault(); // منع الانتقال المباشر
-      const link = this.href; // الحصول على الرابط
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
 
-      // تشغيل الانيميشن
-      this.style.animation = 'scaleUp 0.5s ease';
-
-      // الانتقال بعد انتهاء الانيميشن
-      setTimeout(() => {
-        window.location.href = link;
-      }, 500); // الانتقال بعد 0.5 ثانية (مدة الانيميشن)
-    });
-  }
-});
-
-// جلب كود عشوائي من ملف codes.txt
-document.addEventListener('DOMContentLoaded', function () {
-  const fetchCodeButton = document.getElementById('fetch-code-button');
-  const currentCodeElement = document.getElementById('current-code');
-  const copyButton = document.getElementById('copy-button');
-
-  fetchCodeButton.addEventListener('click', function () {
-    fetch('codes.txt') // جلب ملف الأكواد
-      .then(response => response.text())
-      .then(data => {
-        const codes = data.split('\n').filter(code => code.trim() !== ''); // تقسيم الأكواد إلى مصفوفة
-        if (codes.length > 0) {
-          const randomCode = codes[Math.floor(Math.random() * codes.length)]; // اختيار كود عشوائي
-          currentCodeElement.textContent = randomCode; // عرض الكود في المستطيل
-          copyButton.disabled = false; // تفعيل زر النسخ
+        if (data.result === 'success') {
+            const convertedAmount = data.conversion_result;
+            const exchangeRate = data.conversion_rate;
+            document.getElementById('result').innerText = `المبلغ المحول: ${convertedAmount.toFixed(2)} ${toCurrency}`;
+            document.getElementById('exchangeRateInfo').innerText = `سعر الصرف الحالي: 1 ${fromCurrency} = ${exchangeRate.toFixed(4)} ${toCurrency}`;
         } else {
-          currentCodeElement.textContent = '--';
-          copyButton.disabled = true; // تعطيل زر النسخ
+            alert("حدث خطأ أثناء الحصول على سعر الصرف");
         }
-      })
-      .catch(error => {
-        console.error('حدث خطأ أثناء جلب الأكواد:', error);
-        currentCodeElement.textContent = '--';
-        copyButton.disabled = true; // تعطيل زر النسخ
-      });
-  });
-
-  copyButton.addEventListener('click', function () {
-    const codeToCopy = currentCodeElement.textContent;
-    if (codeToCopy && codeToCopy !== '--') {
-      navigator.clipboard.writeText(codeToCopy).then(() => {
-        alert('تم نسخ الكود: ' + codeToCopy);
-      }).catch(err => {
-        console.error('فشل في نسخ الكود:', err);
-      });
+    } catch (error) {
+        console.error('Error:', error);
+        alert("حدث خطأ أثناء الاتصال بالخادم");
     }
-  });
-});
+}
