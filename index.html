@@ -6,7 +6,6 @@
     <title>حاسبة سعر الصرف</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
@@ -19,118 +18,26 @@
             <div class="input-group">
                 <label for="fromCurrency">من:</label>
                 <select id="fromCurrency">
-                    <!-- العملات العربية -->
-                    <option value="AED">درهم إماراتي (AED)</option>
-                    <option value="BHD">دينار بحريني (BHD)</option>
-                    <option value="DZD">دينار جزائري (DZD)</option>
-                    <option value="EGP">جنيه مصري (EGP)</option>
-                    <option value="IQD">دينار عراقي (IQD)</option>
-                    <option value="JOD">دينار أردني (JOD)</option>
-                    <option value="KWD">دينار كويتي (KWD)</option>
-                    <option value="LBP">ليرة لبنانية (LBP)</option>
-                    <option value="LYD">دينار ليبي (LYD)</option>
-                    <option value="MAD">درهم مغربي (MAD)</option>
-                    <option value="MRU">أوقية موريتانية (MRU)</option>
-                    <option value="OMR">ريال عماني (OMR)</option>
-                    <option value="QAR">ريال قطري (QAR)</option>
-                    <option value="SAR">ريال سعودي (SAR)</option>
-                    <option value="SDG">جنيه سوداني (SDG)</option>
-                    <option value="SYP">ليرة سورية (SYP)</option>
-                    <option value="TND">دينار تونسي (TND)</option>
-                    <option value="YER">ريال يمني (YER)</option>
-
-                    <!-- العملات العالمية -->
-                    <option value="EUR">يورو (EUR)</option>
                     <option value="USD">دولار أمريكي (USD)</option>
-                    <option value="GBP">جنيه إسترليني (GBP)</option>
-                    <option value="JPY">ين ياباني (JPY)</option>
-                    <option value="AUD">دولار أسترالي (AUD)</option>
-                    <option value="CAD">دولار كندي (CAD)</option>
-                    <option value="CHF">فرنك سويسري (CHF)</option>
-                    <option value="CNY">يوان صيني (CNY)</option>
-                    <option value="SEK">كرونا سويدية (SEK)</option>
-                    <option value="NZD">دولار نيوزيلندي (NZD)</option>
-                    <option value="KRW">وون كوري جنوبي (KRW)</option>
-                    <option value="SGD">دولار سنغافوري (SGD)</option>
-                    <option value="NOK">كرونة نرويجية (NOK)</option>
-                    <option value="MXN">بيزو مكسيكي (MXN)</option>
-                    <option value="INR">روبية هندية (INR)</option>
-                    <option value="RUB">روبل روسي (RUB)</option>
-                    <option value="ZAR">راند جنوب أفريقي (ZAR)</option>
-                    <option value="TRY">ليرة تركية (TRY)</option>
-                    <option value="BRL">ريال برازيلي (BRL)</option>
-                    <option value="TWD">دولار تايواني (TWD)</option>
-                    <option value="DKK">كرونة دنماركية (DKK)</option>
-                    <option value="PLN">زلوتي بولندي (PLN)</option>
-                    <option value="THB">بات تايلاندي (THB)</option>
-                    <option value="IDR">روبية إندونيسية (IDR)</option>
-                    <option value="HKD">دولار هونغ كونغ (HKD)</option>
-                    <option value="MYR">رينغيت ماليزي (MYR)</option>
-                    <option value="PHP">بيزو فلبيني (PHP)</option>
+                    <option value="EUR">يورو (EUR)</option>
+                    <!-- أضف باقي الخيارات -->
                 </select>
             </div>
             <div class="input-group">
                 <label for="toCurrency">إلى:</label>
                 <select id="toCurrency">
-                    <!-- العملات العربية -->
-                    <option value="AED">درهم إماراتي (AED)</option>
-                    <option value="BHD">دينار بحريني (BHD)</option>
-                    <option value="DZD">دينار جزائري (DZD)</option>
-                    <option value="EGP">جنيه مصري (EGP)</option>
-                    <option value="IQD">دينار عراقي (IQD)</option>
-                    <option value="JOD">دينار أردني (JOD)</option>
-                    <option value="KWD">دينار كويتي (KWD)</option>
-                    <option value="LBP">ليرة لبنانية (LBP)</option>
-                    <option value="LYD">دينار ليبي (LYD)</option>
-                    <option value="MAD">درهم مغربي (MAD)</option>
-                    <option value="MRU">أوقية موريتانية (MRU)</option>
-                    <option value="OMR">ريال عماني (OMR)</option>
-                    <option value="QAR">ريال قطري (QAR)</option>
-                    <option value="SAR">ريال سعودي (SAR)</option>
-                    <option value="SDG">جنيه سوداني (SDG)</option>
-                    <option value="SYP">ليرة سورية (SYP)</option>
-                    <option value="TND">دينار تونسي (TND)</option>
-                    <option value="YER">ريال يمني (YER)</option>
-
-                    <!-- العملات العالمية -->
-                    <option value="EUR">يورو (EUR)</option>
                     <option value="USD">دولار أمريكي (USD)</option>
-                    <option value="GBP">جنيه إسترليني (GBP)</option>
-                    <option value="JPY">ين ياباني (JPY)</option>
-                    <option value="AUD">دولار أسترالي (AUD)</option>
-                    <option value="CAD">دولار كندي (CAD)</option>
-                    <option value="CHF">فرنك سويسري (CHF)</option>
-                    <option value="CNY">يوان صيني (CNY)</option>
-                    <option value="SEK">كرونا سويدية (SEK)</option>
-                    <option value="NZD">دولار نيوزيلندي (NZD)</option>
-                    <option value="KRW">وون كوري جنوبي (KRW)</option>
-                    <option value="SGD">دولار سنغافوري (SGD)</option>
-                    <option value="NOK">كرونة نرويجية (NOK)</option>
-                    <option value="MXN">بيزو مكسيكي (MXN)</option>
-                    <option value="INR">روبية هندية (INR)</option>
-                    <option value="RUB">روبل روسي (RUB)</option>
-                    <option value="ZAR">راند جنوب أفريقي (ZAR)</option>
-                    <option value="TRY">ليرة تركية (TRY)</option>
-                    <option value="BRL">ريال برازيلي (BRL)</option>
-                    <option value="TWD">دولار تايواني (TWD)</option>
-                    <option value="DKK">كرونة دنماركية (DKK)</option>
-                    <option value="PLN">زلوتي بولندي (PLN)</option>
-                    <option value="THB">بات تايلاندي (THB)</option>
-                    <option value="IDR">روبية إندونيسية (IDR)</option>
-                    <option value="HKD">دولار هونغ كونغ (HKD)</option>
-                    <option value="MYR">رينغيت ماليزي (MYR)</option>
-                    <option value="PHP">بيزو فلبيني (PHP)</option>
+                    <option value="EUR">يورو (EUR)</option>
+                    <!-- أضف باقي الخيارات -->
                 </select>
             </div>
             <button onclick="convertCurrency()">تحويل</button>
         </div>
         <div class="conversion result">
-            <h2 id="conversion result">المبلغ المحول: </h2>
+            <h2 id="conversionResult">المبلغ المحول: </h2>
             <p id="exchangeRateInfo">سعر الصرف الحالي: </p>
         </div>
     </div>
     <script src="script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
-        <script>eruda.init();</script>
 </body>
 </html>
